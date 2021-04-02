@@ -74,7 +74,15 @@ nlu:
     - Mam mniej niż 70 lat i/lub jestem niepełnosprawna. Czy mogę skorzystać z pomocy w ramach programu?
     - Mój lekarz POZ nie dyżuruje, a ja mam objawy COVID-19. Co mam zrobić?
     - Czy jeżdżąc na rowerze muszę zakrywać usta i nos?
-
+    - Mój ojciec jest osobą po udarze, z trudem się porusza. Czy może liczyć na szczepienie w domu przez wyjazdowy punkt szczepień?
+    - Na jakiej zasadzie weryfikowane są osoby z grupy „zero" w systemie do rejestracji szczepień?
+    - Czy można sprawdzić gdzieś, czy jest się na pewno zapisanym? Kiedy rejestrowało się kilka osób (np. z rodziny), nie zawsze da się zorientować, kto już jest potwierdzony, a kto nie.
+    - Czy dostanę potwierdzenie tego, że zostałem zapisany na szczepienie?
+    - Czy można anulować wizytę na szczepienie?
+    - Czy szczepionka jest płatna? 
+    - Czy w mojej przychodni mogę się zaszczepić?
+    - Chcę zapisać mojego dziadka / babcię / mamę / tatę / sąsiada itp. czy mogę to zrobić jako osoba trzecia?
+    - Na infolinii Narodowego Punktu Szczepień poinformowano mnie, że w Krakowie do końca marca nie ma już wolnych terminów szczepień. Czy dotyczy to również wyjazdowych punktów szczepień?
 
 - intent: book_meeting
   examples: |
