@@ -1,0 +1,88 @@
+version: "2.0"
+
+stories:
+
+- story: qa_1
+  steps:
+  - intent: question_answering
+  - action: action_match_question
+  - intent: choose_abc
+  - action: action_answer_question
+
+- story: get_forex_1
+  steps:
+  - intent: get_forex
+  - action: action_get_forex
+
+- story: recover_contact_email_1
+  steps:
+  - intent: recover_contact_email
+  - action: action_recover_contact_email
+
+- story: mixed
+  steps:
+  - intent: get_forex
+  - action: action_get_forex
+  - intent: tell_me_a_joke
+  - action: utter_joke
+
+
+- story: add_contact_happy
+  steps:
+  - intent: add_contact
+  - action: contact_form
+  - active_loop: contact_form
+  - slot_was_set:
+    - requested_slot: person
+    - person: Adam Nowak
+  - slot_was_set:
+    - requested_slot: email
+    - email: a@mail.pl
+  - active_loop: null
+  - action: action_submit_contact_form
+
+- story: add_contact_sad
+  steps:
+  - intent: add_contact
+  - action: contact_form
+  - active_loop: contact_form
+  - slot_was_set:
+    - requested_slot: person
+    - person: Adam Nowak
+  - intent: out_of_scope
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_default_fallback
+
+- story: book_meeting_happy
+  steps:
+  - intent: book_meeting
+  - action: meeting_form
+  - active_loop: meeting_form
+  - slot_was_set:
+    - requested_slot: person
+    - person: Adam Nowak
+  - slot_was_set:
+    - requested_slot: time
+    - time: przyszły czwartek
+  - active_loop: null
+  - action: action_submit_meeting_form
+
+- story: book_meeting_sad
+  steps:
+  - intent: book_meeting
+  - action: meeting_form
+  - active_loop: meeting_form
+  - slot_was_set:
+    - requested_slot: person
+    - person: Adam Nowak
+  - intent: out_of_scope
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_default_fallback
+
+- story: joke
+  steps:
+  - intent: tell_me_a_joke
+  - action: utter_joke
+

@@ -1,0 +1,164 @@
+version: "2.0"
+
+nlu:
+
+- intent: choose_abc
+  examples: |
+    - a)
+    - b)
+    - c)
+    - a
+    - b
+    - c
+
+- intent: question_answering
+  examples: |
+    - Jestem na kwarantannie, która kończy się jutro. Taka informacja widnieje na IKP. Policja jednak potrzebuje informacji z sanepidu, ponieważ w ich systemie moja kwarantanna jest bezterminowa. Co mam zrobić w tej sytuacji?
+    - Czy na izolacji, kwarantannie potrzebuję L4?
+    - Jestem na kwarantannie, bo wróciłam z zagranicy. Do jakich świadczeń chorobowych mam prawo?
+    - Czy skierowanie na test może wystawić tylko lekarz POZ? Czy lekarz z nocnej i świątecznej telepomocy może wystawić takie skierowanie?
+    - Moje dziecko jest objęte kwarantanną. Czy ma obowiązek korzystać z aplikacji Kwarantanna Domowa?
+    - Czy place zabaw w centrach handlowych są dostępne dla dzieci?
+    - Jaka jest różnica pomiędzy kwarantanną a izolacją?
+    - Jestem kurierem, na co dzień mam kontakt z wieloma klientami i przesyłkami? Jak mam postępować?
+    - Czy podczas pobytu w hotelu będę mógł skorzystać z siłowni, basenu lub strefy rekreacyjnej?
+    - Czy tylko za pomocą maski mogę zasłonić usta i nos?
+    - Solidarnościowy Korpus Wsparcia Seniorów- jakie są główne złożenia programu?
+    - Czy zmieni się moje wynagrodzenie, jeśli szef zleci mi pracę zdalną?
+    - Czy codziennie muszę wykonywać pomiary Pulsoksymetrem?
+    - Czy mogę się umówić na wykonanie testu na konkretną godzinę?
+    - Przebywam z dzieckiem na kwarantannie. Czy potrzebuję zgody sanepidu na wyjście do lekarza, który musi zbadać dziecko?
+    - Co z zajęciami dla dzieci w domach kultury? Czy mogą być organizowane?
+    - Czy test antygenowy jest traktowany tak samo jak test PCR?
+    - Mam mniej niż 70 lat i/lub jestem niepełnosprawna. Czy mogę skorzystać z pomocy w ramach programu?
+    - Mój lekarz POZ nie dyżuruje, a ja mam objawy COVID-19. Co mam zrobić?
+    - Czy jeżdżąc na rowerze muszę zakrywać usta i nos?
+
+
+- intent: book_meeting
+  examples: |
+    - Umów spotkanie
+    - Będę miał spotkanie
+    - zanotuj spotkanie z [Karolem Ogrodniczukiem](person)
+    - zapisz mnie na spotkanie w [czwartek](time)
+    - Zapisz w kalendarzu rozmowę z [Beatą Kowalską](person) na [27 maja](time)
+    - w [przyszły czwartek o 11:00](time) jest spotkanie firmowe
+    - dostałem zaproszenie na rozmowę z [Anią](person), [jutro o trzynastej](time)
+    - Mam [30ego](time) rozmowę u [Jana Nowaka](person)
+    - [pojutrze](time) jest kolacja z [Piotrem Przybylskim](person)
+    - Mam w [ten wtorek](time) calla
+    - Wrzuć do kalendarza
+    - Zaplanuj spotkanie
+    - Zaplanuj rozmowe z [Ewą](person) [21ego września]
+    - chciałbym żebyś zapisał spotkanie z [Jarkiem Przełęckim](person), odbędzie się ono [w przyszły wtorek o 14ej](time)
+    - [w czwartek godzina 8 po południu](time) - kolacja
+    - w [tą sobotę](time) jest seminarium
+    - [8ego lutego](time) mam spotkanie w sprawie pracy z [Jerzym Nowosielskim](person)
+    - zapisz wykład profesora [czarneckiego](person), odbędzie się [4ego października o 11:00](time)
+    - zanotuj w kalendarzu lunch z [bartkiem](person), to jest [czwartek 15:00](time) 
+
+- intent: out_of_scope
+  examples: |
+    - źle mnie zrozumiałeś
+    - nie o to chodziło
+    - inaczej!
+    - przerwij
+    - stop
+    - chodzi mi o co innego
+
+- intent: inform
+  examples: |
+    - [Adam Morawski](person)
+    - [Karolina Dąbrowska](person)
+    - nazywa się [Agata Mazowiecka](person)
+    - [Jerzy Rogalski](person)
+    - [andrzej poręba](person)
+    - [robert](person)
+    - [Asia](person)
+    - ma na imię [Beata](person)
+    - [joanna kwiatkowska](person)
+    - jej mail to [a.k@mail.com](email)
+    - [agata@gmail.pl](email)
+    - jego adres to [mailjana@janmail.org](email)
+    - [marta@narta.pl](email)
+    - [piątek 13go](time)
+    - [dziś o 17:00](time)
+    - [ósmego sierpnia](time)
+
+- intent: recover_contact_email
+  examples: |
+    - Podaj mi mail do [Adama Wielomskiego](person)
+    - jaki email ma [ela kwiatkowska](person)?
+    - chcę adres mailowy do [Witolda](person)
+    - pokaż jaki ma adres [karolina](person)
+
+- intent: get_forex
+  examples: |
+    - Pokaż mi ceny walut
+    - Jak stoją teraz waluty?
+    - ile kosztuje obecnie dolar?
+    - Ile jest warte euro?
+    - wypisz mi waluty
+    - wypisz dane z forexa
+    - pokaż forex
+    - pobierz dane o walutach
+    - jaka jest cena funta?
+
+- intent: tell_me_a_joke
+  examples: |
+    - Opowiedz mi jakiś dowcip
+    - powiedz mi coś śmiesznego
+    - rozśmiesz mnie
+    - chcę posłuchać dowcipu
+    - Znasz jakieś śmieszne żarty?
+
+- intent: add_contact
+  examples: |
+    - dodaj kontakt [Marek Kowalski](person) [m.k@mail.com](email)
+    - dodaj [Ewę](person) do listy znajomych
+    - wrzuć [pawła](person) do listy kontaktów
+    - dodaj proszę do kontaktów [anię sikorską](person), adres email [ao@oa.pl](email)
+    - wrzuć do książki kontaktów [Jarka Sobolewskiego](person)
+    - dodaj połączenie z [Elą Nowak](person)
+    - wrzuć połączenie z [Adamem Morawskim](person) do kontaktów, jego mail to [b.c@a.com](email)
+    - dodaj do książki [Piotra Wareckiego](person)
+    - utwórz proszę kontakt z [Martą Wawrzecką](person)
+    - utwórz profil dla [Bartka Pawlikowskiego](person)
+    - stwórz profil w kontaktach dla [Agnieszki Rydzewskiej](person)
+    - utwórz kontakt
+    - utwórz nowy wpis w kontaktach
+    - dodaj nowy kontakt do książki
+
+- intent: greet
+  examples: |
+    - cześć
+    - Cześć!
+    - hej
+    - Siema
+    - dzień dobry!
+    - Witam!
+    - Asystencie!
+
+- intent: goodbye
+  examples: |
+    - to wszystko
+    - dzięki na razie
+    - Na razie
+    - Do zobaczenia
+    - do widzenia
+    - to wszystko, cześć
+
+- intent: affirm
+  examples: |
+    - tak
+    - dokładnie
+    - Zgadza się
+    - OK
+    - Tak!
+
+- intent: deny
+  examples: |
+    - Nie
+    - źle!
+    - nie nie
+
