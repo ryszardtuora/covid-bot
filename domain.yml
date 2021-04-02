@@ -13,6 +13,8 @@ intents:
   - inform
   - question_answering
   - choose_abc
+  - vaccination_registration
+  - covid_test_registration
 
 entities:
   - person
@@ -55,6 +57,8 @@ actions:
   - action_submit_meeting_form
   - action_match_question
   - action_answer_question
+  - utter_vaccination_registration
+  - utter_covid_test_registration
 
 responses:
   utter_greet:
@@ -80,6 +84,11 @@ responses:
   utter_default_fallback:
   - text: "Przepraszam, czegoś nie zrozumiałem. Czy możesz wyrazić to inaczej?"
 
+  utter_vaccination_registration:
+  - text: "Rejestracja na szczepienia jest dostępna pod tym linkiem: https://www.gov.pl/web/szczepimysie/rejestracja"
+
+  utter_covid_test_registration:
+  - text: "Rejestracja na testy na obecność koronawirusa jest dostępna pod tym linkiem: https://www.gov.pl/web/gov/zapisz-sie-na-test-na-koronawirusa"
   
 
 session_config:

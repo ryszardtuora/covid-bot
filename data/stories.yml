@@ -26,6 +26,16 @@ stories:
   - intent: tell_me_a_joke
   - action: utter_joke
 
+- story: vaccination
+  steps:
+  - intent: vaccination_registration
+  - action: utter_vaccination_registration
+
+
+- story: covid_test
+  steps:
+  - intent: covid_test_registration
+  - action: utter_covid_test_registration
 
 - story: add_contact_happy
   steps:

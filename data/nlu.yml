@@ -11,6 +11,47 @@ nlu:
     - b
     - c
 
+
+- intent: vaccination_registration
+  examples: |
+    - Jak się zarejestrować na szczepienie?
+    - Chciałbym się zapisać na sczepionkę
+    - jak wygląda procedura zapisów na szczepienia
+    - chcę się zaszczepić
+    - jak zgłosić chęć szczepienia na covida?
+    - co zrobić żeby móc się zaszczepić?
+    - chcę zaszczepić przeciwko covid swoją mamę
+    - Chciałabym zapisać na szczepienia mojego ojca
+    - gdzie można się zapisać na sczepienie?
+    - Gdzie trzeba się zgłosić, żeby wejśc do kolejki szczepień?
+    - Czy mogę się zapisać na szczepienie przez internet?
+    - Co muszę zrobić żeby móc zaszczepić się przeciwko sars covid?
+    - chcę się zaszczepić na koronawirusa
+    - chciałabym się zapisać na szczepienie przeciwko koronawirusowi
+
+- intent: covid_test_registration
+  examples: |
+    - Chyba zachorowałem na covid
+    - chyba złapałem wirusa
+    - wydaje mi się, że mogę być chora na koronawirusa
+    - chciałbym wykonać test na covid
+    - mam gorączkę, chcę wykonać test przeciwko koronawirusowi
+    - jak zgłosić się na testy?
+    - Jak się zarejestrować na test?
+    - Chciałbym się zapisać na test
+    - jak wygląda procedura zapisów na testy na koronawirusa
+    - chcę się zbadać pod kątem koronawirusa
+    - jak zgłosić chęć testu na covida?
+    - co zrobić żeby móc się zbadać czy mam koronawirusa?
+    - chcę zbadać pod kątem covid swoją mamę
+    - Chciałabym zapisać na test mojego ojca
+    - gdzie można się zapisać na badanie?
+    - Czy mogę się zapisać na testy przez internet?
+    - Co muszę zrobić żeby móc się przetestować przeciwko sars covid?
+    - chcę się przetestować na koronawirusa
+    - chciałabym się zapisać na zrobienie testu przeciwko koronawirusowi
+
+
 - intent: question_answering
   examples: |
     - Jestem na kwarantannie, która kończy się jutro. Taka informacja widnieje na IKP. Policja jednak potrzebuje informacji z sanepidu, ponieważ w ich systemie moja kwarantanna jest bezterminowa. Co mam zrobić w tej sytuacji?
