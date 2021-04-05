@@ -150,11 +150,20 @@ class ActionCheckCovidData(Action):
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         covid_data = get_todays_covid_data()
-        active_cases_message = "zwiększyła się o" if covid_data["active"] > 0 else "spadła o"  #elif == 0
-        covid_data['active'] = abs(covid_data['active'])
-        message = f'Dzisiaj odnotowano {covid_data["confirmed"]} nowych przypadków zakażeń koronawirusem.\n'\
-                  f'{covid_data["recovered"]} osób wyzdrowiało, a {covid_data["deaths"]} zmarło.\n' \
-                  f'Od wczoraj, liczba osób aktywnie zakażonych COVID-19 {active_cases_message} {covid_data["active"]}.'
+        message = self._prepare_message(covid_data)
         dispatcher.utter_message(message)
         return []
+
+    def _prepare_message(self, covid_data: dict):
+        message = f'Dzisiaj odnotowano {covid_data["confirmed"]} nowych przypadków zakażeń koronawirusem.\n'
+        message += f'Liczba osób uznanych za wyzdrowiałe wynosi {covid_data["recovered"]}, '
+        message += f'a zmarłych {covid_data["deaths"]}.\n'
+        if covid_data['active'] == 0:
+            message += 'Liczba osób aktywnie zakażonych COVID-19 nie zmieniła się od wczoraj.'
+        else:
+            active_difference = "zwiększyła się o" if covid_data["active"] > 0 else "zmniejszyła się o"
+            active_difference_number = abs(covid_data['active'])
+            message += f'Od wczoraj, liczba osób aktywnie zakażonych {active_difference} {active_difference_number}.'
+        return message
+
 
