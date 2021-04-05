@@ -84,28 +84,6 @@ nlu:
     - Chcę zapisać mojego dziadka / babcię / mamę / tatę / sąsiada itp. czy mogę to zrobić jako osoba trzecia?
     - Na infolinii Narodowego Punktu Szczepień poinformowano mnie, że w Krakowie do końca marca nie ma już wolnych terminów szczepień. Czy dotyczy to również wyjazdowych punktów szczepień?
 
-- intent: book_meeting
-  examples: |
-    - Umów spotkanie
-    - Będę miał spotkanie
-    - zanotuj spotkanie z [Karolem Ogrodniczukiem](person)
-    - zapisz mnie na spotkanie w [czwartek](time)
-    - Zapisz w kalendarzu rozmowę z [Beatą Kowalską](person) na [27 maja](time)
-    - w [przyszły czwartek o 11:00](time) jest spotkanie firmowe
-    - dostałem zaproszenie na rozmowę z [Anią](person), [jutro o trzynastej](time)
-    - Mam [30ego](time) rozmowę u [Jana Nowaka](person)
-    - [pojutrze](time) jest kolacja z [Piotrem Przybylskim](person)
-    - Mam w [ten wtorek](time) calla
-    - Wrzuć do kalendarza
-    - Zaplanuj spotkanie
-    - Zaplanuj rozmowe z [Ewą](person) [21ego września]
-    - chciałbym żebyś zapisał spotkanie z [Jarkiem Przełęckim](person), odbędzie się ono [w przyszły wtorek o 14ej](time)
-    - [w czwartek godzina 8 po południu](time) - kolacja
-    - w [tą sobotę](time) jest seminarium
-    - [8ego lutego](time) mam spotkanie w sprawie pracy z [Jerzym Nowosielskim](person)
-    - zapisz wykład profesora [czarneckiego](person), odbędzie się [4ego października o 11:00](time)
-    - zanotuj w kalendarzu lunch z [bartkiem](person), to jest [czwartek 15:00](time) 
-
 - intent: out_of_scope
   examples: |
     - źle mnie zrozumiałeś
@@ -134,13 +112,6 @@ nlu:
     - [dziś o 17:00](time)
     - [ósmego sierpnia](time)
 
-- intent: recover_contact_email
-  examples: |
-    - Podaj mi mail do [Adama Wielomskiego](person)
-    - jaki email ma [ela kwiatkowska](person)?
-    - chcę adres mailowy do [Witolda](person)
-    - pokaż jaki ma adres [karolina](person)
-
 - intent: get_forex
   examples: |
     - Pokaż mi ceny walut
@@ -160,23 +131,6 @@ nlu:
     - rozśmiesz mnie
     - chcę posłuchać dowcipu
     - Znasz jakieś śmieszne żarty?
-
-- intent: add_contact
-  examples: |
-    - dodaj kontakt [Marek Kowalski](person) [m.k@mail.com](email)
-    - dodaj [Ewę](person) do listy znajomych
-    - wrzuć [pawła](person) do listy kontaktów
-    - dodaj proszę do kontaktów [anię sikorską](person), adres email [ao@oa.pl](email)
-    - wrzuć do książki kontaktów [Jarka Sobolewskiego](person)
-    - dodaj połączenie z [Elą Nowak](person)
-    - wrzuć połączenie z [Adamem Morawskim](person) do kontaktów, jego mail to [b.c@a.com](email)
-    - dodaj do książki [Piotra Wareckiego](person)
-    - utwórz proszę kontakt z [Martą Wawrzecką](person)
-    - utwórz profil dla [Bartka Pawlikowskiego](person)
-    - stwórz profil w kontaktach dla [Agnieszki Rydzewskiej](person)
-    - utwórz kontakt
-    - utwórz nowy wpis w kontaktach
-    - dodaj nowy kontakt do książki
 
 - intent: greet
   examples: |
@@ -210,4 +164,13 @@ nlu:
     - Nie
     - źle!
     - nie nie
+
+- intent: survey
+  examples: |
+    - Chcę wziąć udział w ankiecie
+    - pokaż ankietę
+    - jak wygląda ta ankieta?
+    - wypełnianie ankiety
+    - chciałabym wypełnić ankietę
+    - Mogę uzupełnić ankietę
 
