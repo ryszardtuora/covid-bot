@@ -15,3 +15,16 @@ def get_currency_rates():
 	return table
 
 
+def get_todays_covid_data():
+    addr = 'https://api.covid19api.com/live/country/poland'
+    r = requests.get(addr)
+    content = json.loads(r.content)
+    until_today_data = content[-1]
+    until_yesterday_data = content[-2]
+    today_stats = {
+        'new_confirmed': until_today_data['Confirmed'] - until_yesterday_data['Confirmed'],
+        'new_deaths': until_today_data['Deaths'] - until_yesterday_data['Deaths'],
+        'new_recovered': until_today_data['Recovered'] - until_yesterday_data['Recovered'],
+        'new_active': until_today_data['Active'] - until_yesterday_data['Active']
+    }
+    return today_stats
