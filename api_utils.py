@@ -22,9 +22,9 @@ def get_todays_covid_data():
     until_today_data = content[-1]
     until_yesterday_data = content[-2]
     today_stats = {
-        'new_confirmed': until_today_data['Confirmed'] - until_yesterday_data['Confirmed'],
-        'new_deaths': until_today_data['Deaths'] - until_yesterday_data['Deaths'],
-        'new_recovered': until_today_data['Recovered'] - until_yesterday_data['Recovered'],
-        'new_active': until_today_data['Active'] - until_yesterday_data['Active']
+        'confirmed': until_today_data['Confirmed'] - until_yesterday_data['Confirmed'],
+        'deaths': until_today_data['Deaths'] - until_yesterday_data['Deaths'],
+        'recovered': until_today_data['Recovered'] - until_yesterday_data['Recovered'],
+        'active': until_today_data['Active'] - until_yesterday_data['Active']
     }
     return today_stats

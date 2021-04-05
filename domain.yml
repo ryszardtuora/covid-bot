@@ -15,6 +15,7 @@ intents:
   - choose_abc
   - vaccination_registration
   - covid_test_registration
+  - check_covid_data
 
 entities:
   - person
@@ -59,6 +60,7 @@ actions:
   - action_answer_question
   - utter_vaccination_registration
   - utter_covid_test_registration
+  - action_check_covid_data
 
 responses:
   utter_greet:

@@ -16,7 +16,7 @@ from rasa_sdk.events import SlotSet
 from rasa_sdk.forms import FormAction
 
 from contact_utils import extract_name, add_contact, get_closest_contact
-from api_utils import get_currency_rates
+from api_utils import get_currency_rates, get_todays_covid_data
 from time_utils import analyze_timestring, add_meeting
 from qa_utils import get_matching_questions, get_answer
 
@@ -110,6 +110,7 @@ class ActionSubmitMeetingForm(Action):
         dispatcher.utter_message(confirmation_message)
         return [SlotSet("person", contact_name), SlotSet("time", meeting_time)]
 
+
 class ActionGetForex(Action):
 
     def name(self) -> Text:
@@ -136,6 +137,24 @@ class ActionRecoverContactEmail(Action):
         contact_name = contact["name"]
         contact_email = contact["email"]
         message = "Mail {} to {}".format(contact_name, contact_email)
+        dispatcher.utter_message(message)
+        return []
+
+
+class ActionCheckCovidData(Action):
+
+    def name(self) -> Text:
+        return "action_check_covid_data"
+
+    def run(self, dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        covid_data = get_todays_covid_data()
+        active_cases_message = "zwiększyła się o" if covid_data["active"] > 0 else "spadła o"  #elif == 0
+        covid_data['active'] = abs(covid_data['active'])
+        message = f'Dzisiaj odnotowano {covid_data["confirmed"]} nowych przypadków zakażeń koronawirusem.\n'\
+                  f'{covid_data["recovered"]} osób wyzdrowiało, a {covid_data["deaths"]} zmarło.\n' \
+                  f'Od wczoraj, liczba osób aktywnie zakażonych COVID-19 {active_cases_message} {covid_data["active"]}.'
         dispatcher.utter_message(message)
         return []
 

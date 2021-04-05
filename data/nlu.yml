@@ -51,6 +51,29 @@ nlu:
     - chcę się przetestować na koronawirusa
     - chciałabym się zapisać na zrobienie testu przeciwko koronawirusowi
 
+- intent: check_covid_data
+  examples: |
+    - Ile było dzisiaj zakażeń koronawirusem?
+    - ile osób wyzdrowiało?
+    - Ile osób zmarło z powodu koronawirusa?
+    - Jaka jest liczba aktywnych przypadków covid?
+    - ile przypadków wirusa?
+    - Jak przebiega pandemia?
+    - ile jest aktywnych przypadków covid
+    - ile osób wyzdrowiało dzisiaj z koronawiursa?
+    - ile jest zakażeń
+    - Sprawdź liczbę zgonów z powodu covid
+    - sprawdź ile osób jest aktywnie chorych na covid
+    - Sprawdź ile było dzisiaj zakażeń
+    - jak dużo osób zachorowało dzisiaj na koronawirusa?
+    - sprawdź najnowsze dane o zakażeniach
+    - Ile jest potwierdzonych przypadków covid?
+    - jaka jest liczba nowych zakażeń
+    - ile zgonów odnotowano dzisiaj z powodu koronawirusa
+    - Czy liczba przypadków covid rośnie?
+    - czy liczba przypadków covid maleje
+    - Sprawdź statystyki koronawirusa.
+
 
 - intent: question_answering
   examples: |
