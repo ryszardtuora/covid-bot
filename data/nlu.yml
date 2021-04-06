@@ -27,8 +27,6 @@ nlu:
     - separacj(a|ą|ę|i)
     - lęk[iem]?
     - zmar(ł[a]?|li)
-    - śmier(ć|cią)
-    - samobójstw(o|em)
 
 - intent: choose_abc
   examples: |
