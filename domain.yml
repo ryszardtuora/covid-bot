@@ -62,6 +62,7 @@ actions:
   - utter_vaccination_registration
   - utter_covid_test_registration
   - utter_survey_done
+  - utter_survey_introduction
 
 forms:
   survey_form:
@@ -106,6 +107,8 @@ responses:
   - text: "Rejestracja na testy na obecność koronawirusa jest dostępna pod tym linkiem: https://www.gov.pl/web/gov/zapisz-sie-na-test-na-koronawirusa"
 
   # Survey
+  utter_survey_introduction:
+  - text: Zapraszamy do wzięcia udziału w ankiecie, składa się ona z 9ciu-pytań dotyczących Twojej sytuacji w związku z pandemią koronawirusa. Jeżeli żadna z propozycji odpowiedzi Cię nie satysfakcjonuje, po prostu napisz sam pasującą odpowiedź. Ankieta jest w pełni anonimowa.
   utter_survey_done:
   - text: Dziękujemy, Twoje odpowiedzi zostały zapisane!
   utter_ask_survey_age:
@@ -117,35 +120,27 @@ responses:
       payload: "male"
     - title: "Kobieta"
       payload: "female"
-
   utter_ask_survey_education:
   - text: 3. Jakie masz wykształcenie?
     buttons:
     - title: "Podstawowe, lub niepełne podstawowe"
       payload: "basic"
-    - title: "Zawodowe"
-      payload: "technical"
-    - title: "Średnie"
+    - title: "Średnie lub zawodowe"
       payload: "secondary"
     - title: "Wyższe"
       payload: "higher"
-
   utter_ask_survey_location:
-  - text: 4. Czy mieszkasz na wsi, małym (<50 tys.), średnim (<500 tys.) lub dużym mieście?
+  - text: 4. Czy w miejscowości do 50 tys. mieszkańców, między 50 a 500 tys. mieszkańców  lub mieście ponad 500 tys. mieszkańców?
     buttons:
-    - title: "Wieś"
+    - title: "Miejscowość do 50 tys. mieszkańców"
       payload: "countryside"
-    - title: "Małe miasto"
-      payload: "small_town"
-    - title: "Średnie miasto"
-      payload: "medium_town"
-    - title: "Duże miasto"
+    - title: "Miejscowość między 50 tys. a 500 tys. mieszkańców"
+      payload: "town"
+    - title: "Miasto powyżej 500 tys. mieszkańców"
       payload: "big_town"
-
   utter_ask_survey_household:
   - text: 5. Ile osób liczy Twoje gospodarstwo domowe?
   # int field
-
   utter_ask_survey_remote:
   - text: 6. Jeśli pracujesz, lub uczysz się, czy robisz to zdalnie, częściowo zdalnie, lub na miejscu?
     buttons:
@@ -155,8 +150,6 @@ responses:
       payload: "in_part_remote"
     - title: "W całości na miejscu"
       payload: "locally"
-    - title: "Nie dotyczy"
-      payload: "NA"
 
   utter_ask_survey_vaccine:
   - text: 7. Czy zamierzasz zapisać się, lub zapisałeś/zapisałaś się już na szczepienie?
@@ -187,9 +180,6 @@ responses:
       payload: "ok"
     - title: "Nie wiem"
       payload: "indifferent"
-
-  utter_ask_survey_restrictions:
-  - text: 10. Jak uciążliwe, w skali 0-5, są dla ciebie restrykcje związane z pandemią?
 
 
 session_config:

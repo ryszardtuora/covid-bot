@@ -42,6 +42,7 @@ stories:
 - story: Survey Form
   steps:
   - intent: survey
+  - action: utter_survey_introduction
   - action: survey_form
   - active_loop: null
   - slot_was_set:

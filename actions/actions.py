@@ -22,8 +22,6 @@ from qa_utils import get_matching_questions, get_answer
 
 from datetime import datetime
 
-nlp = spacy.load("pl_spacy_model_morfeusz")
-
 class ActionHelloWorld(Action):
 
     def name(self) -> Text:
