@@ -2,6 +2,32 @@ version: "2.0"
 
 nlu:
 
+- lookup: emotional_negative
+  examples: |
+    - źle
+    - gorzej
+    - samotn(y|a|i|e)
+    - smutn(y|a|i|e)
+    - brakuje
+    - straci(ć|łam|łem|liśmy|li|ły)
+    - zmartwion(y|a)
+    - załaman(y|a|i|e)
+    - przybit(y|a|e)
+    - przygnębion(y|a|e)
+    - wystraszon(y|a|e)
+    - przerażon(y|a|e)
+    - martwi[ę|ą]?
+    - bo(i|j[ą|ę])
+    - tęskn(ię|imy)
+    - niepok(oję|oją|oimy|ój)
+    - panik(a|ę|uję)
+    - depresj(ę|a|ą|i)
+    - izolacj(ę|a|ą|i)
+    - odosob(nion[y|a]|nienie[m]?)
+    - separacj(a|ą|ę|i)
+    - lęk[iem]?
+    - zmar(ł[a]?|li)
+
 - intent: choose_abc
   examples: |
     - a)
@@ -102,7 +128,7 @@ nlu:
     - Czy można sprawdzić gdzieś, czy jest się na pewno zapisanym? Kiedy rejestrowało się kilka osób (np. z rodziny), nie zawsze da się zorientować, kto już jest potwierdzony, a kto nie.
     - Czy dostanę potwierdzenie tego, że zostałem zapisany na szczepienie?
     - Czy można anulować wizytę na szczepienie?
-    - Czy szczepionka jest płatna? 
+    - Czy szczepionka jest płatna?
     - Czy w mojej przychodni mogę się zaszczepić?
     - Chcę zapisać mojego dziadka / babcię / mamę / tatę / sąsiada itp. czy mogę to zrobić jako osoba trzecia?
     - Na infolinii Narodowego Punktu Szczepień poinformowano mnie, że w Krakowie do końca marca nie ma już wolnych terminów szczepień. Czy dotyczy to również wyjazdowych punktów szczepień?
@@ -205,3 +231,28 @@ nlu:
     - Mogę uzupełnić ankietę
     - ankieta
 
+- intent: get_help
+  examples: |
+    - moje dziecko [źle](emotional_negative) znosi [izolację](emotional_negative), jak mogę mu pomóc?
+    - jestem na kwarantannie od tygodnia i czuję się dużo [gorzej](emotional_negative)
+    - czuję się [samotny](emotional_negative)
+    - ostatnio jestem [smutny](emotional_negative) częściej, niż zwykle
+    - [brakuje](emotional_negative) mi spotkań ze znajomymi
+    - [straciłem](emotional_negative) rodziców przez koronawirusa, nie wiem, jak się po tym pozbierać
+    - moja mama jest [zmartwiona](emotional_negative) wiadomościami o wirusie, jak jej pomóc?
+    - mój kolega [stracił](emotional_negative) pracę przez pandemię i jest [załamany](emotional_negative), jak z nim porozmawiać?
+    - jestem [przybita](emotional_negative)
+    - mój brat jest [przygnębiony](emotional_negative)
+    - dzieci są [wystraszone](emotional_negative) koronawirusem
+    - moja córka [przerażona](emotional_negative) informacjami o liczbie zgonów
+    - przez pandemię cały czas [martwię](emotional_negative) się o zdrowie dziadków
+    - [boję](emotional_negative) się o swoich bliskich
+    - [tęsknię](emotional_negative) za rodziną, z którą nie mogę się spotykać
+    - ostatnio często odczuwam [niepokój](emotional_negative)
+    - związana z pandemią [panika](emotional_negative) bardzo mnie stresuje
+    - chyba mam [depresję](emotional_negative), jak uzyskać pomoc?
+    - [izolacja](emotional_negative) mnie dobija
+    - jak radzić sobie z [odosobieniem](emotional_negative) podczas pandemii?
+    - jestem zmęczona [separacją](emotional_negative) od moich bliskich
+    - od początku pandemii odczuwam [lęk](emotional_negative)
+    - mój ojciec [zmarł](emotional_negative) na koronawirusa

@@ -14,12 +14,13 @@ intents:
   - covid_test_registration
   - check_covid_data
   - survey
-
+  - get_help
 
 entities:
   - person
   - email
   - time
+  - emotional_negative
 
 slots:
   person:
@@ -54,6 +55,7 @@ slots:
 actions:
   - utter_greet
   - utter_goodbye
+  - utter_get_help
   - action_get_forex
   - action_match_question
   - action_answer_question
@@ -96,10 +98,12 @@ responses:
 
   utter_joke:
   - text: "Przychodzi chatbot do lekarza... A lekarz też chatbot!"
-  
+
   utter_default_fallback:
   - text: "Przepraszam, czegoś nie zrozumiałem. Czy możesz wyrazić to inaczej?"
 
+  utter_get_help:
+  - text: "Spróbuj uzyskać pomoc na stronie https://www.gov.pl/web/koronawirus/ochrona-zdrowia-psychicznego."
   utter_vaccination_registration:
   - text: "Rejestracja na szczepienia jest dostępna pod tym linkiem: https://www.gov.pl/web/szczepimysie/rejestracja"
 
@@ -172,7 +176,7 @@ responses:
       payload: "indifferent"
 
   utter_ask_survey_economy:
-  - text: 9. Czy doświadczyłeś/doświadczyłaś pogorszenia swojej sytuacji ekonomicznej w związku z pandemią? 
+  - text: 9. Czy doświadczyłeś/doświadczyłaś pogorszenia swojej sytuacji ekonomicznej w związku z pandemią?
     buttons:
     - title: "Tak"
       payload: "worse"
