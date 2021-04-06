@@ -12,7 +12,9 @@ intents:
   - choose_abc
   - vaccination_registration
   - covid_test_registration
+  - check_covid_data
   - survey
+
 
 entities:
   - person
@@ -56,6 +58,7 @@ actions:
   - action_match_question
   - action_answer_question
   - action_submit_survey_form
+  - action_check_covid_data
   - utter_vaccination_registration
   - utter_covid_test_registration
   - utter_survey_done

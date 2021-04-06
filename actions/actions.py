@@ -15,7 +15,8 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from rasa_sdk.forms import FormAction
 
-from api_utils import get_currency_rates
+from api_utils import get_todays_covid_data, APIError
+
 from qa_utils import get_matching_questions, get_answer
 
 nlp = spacy.load("pl_spacy_model_morfeusz")
@@ -90,4 +91,33 @@ class ActionSubmitSurveyForm(Action):
         #dispatcher.utter_message(confirmation_message)
         print("action")
         return []#[SlotSet("person", contact_name), SlotSet("time", meeting_time)]
+
+
+class ActionCheckCovidData(Action):
+
+    def name(self) -> Text:
+        return "action_check_covid_data"
+
+    def run(self, dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            covid_data = get_todays_covid_data()
+            message = self._prepare_message(covid_data)
+        except APIError:
+            message = 'Nie udało się uzyskać danych dotyczących COVID-19. Przepraszamy!'
+        dispatcher.utter_message(message)
+        return []
+
+    def _prepare_message(self, covid_data: dict):
+        message = f'Dzisiaj odnotowano {covid_data["confirmed"]} nowych przypadków zakażeń koronawirusem.\n'
+        message += f'Liczba osób uznanych za wyzdrowiałe wynosi {covid_data["recovered"]}, '
+        message += f'a zmarłych {covid_data["deaths"]}.\n'
+        if covid_data['active'] == 0:
+            message += 'Liczba osób aktywnie zakażonych COVID-19 nie zmieniła się od wczoraj.'
+        else:
+            active_difference = "zwiększyła się o" if covid_data["active"] > 0 else "zmniejszyła się o"
+            active_difference_number = abs(covid_data['active'])
+            message += f'Od wczoraj, liczba osób aktywnie zakażonych {active_difference} {active_difference_number}.'
+        return message
 
