@@ -19,7 +19,7 @@ def get_matching_questions(sent):
   vec = model.encode(sent)
   dists = cosine_distances([vec], vex)[0]
   ranking = sorted([(v,i) for i,v in enumerate(dists)])
-  top_3 = [questions[e[1]] for e in ranking[:3]]
+  top_3 = [(questions[e[1]], e[0]) for e in ranking[:3]]
   return top_3
 
 def get_answer(question):

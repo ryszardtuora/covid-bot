@@ -12,6 +12,9 @@ r = requests.get("https://www.gov.pl/web/koronawirus/pytania-i-odpowiedzi")
 soup = BeautifulSoup(r.content, "html.parser")
 pairs = soup.findAll("details")
 
+r = requests.get("https://pacjent.gov.pl/aktualnosc/szczepienia-przeciw-covid-19-pytania-pacjentow")
+soup = BeautifulSoup(r.content, "html.parser")
+pairs2 = soup.findAll("div", {"class": "accordion-item"})
 
 # przetwarzanie pobranych danych
 for p in pairs:
@@ -26,6 +29,13 @@ for p in pairs:
       pass
   answer = "\n".join(answer_parts)
   QA[question] = answer
+
+for p in pairs2:
+  question = p.find("label", {"class":"accordion-title"}).text.strip()
+  answer = p.find("div", {"class": "accordion-content"}).text.strip()
+  questions.append(question)
+  QA[question] = answer
+
 
 # zapis par pytanie -> odpowiedź
 with open("QA.json", "w") as f:
