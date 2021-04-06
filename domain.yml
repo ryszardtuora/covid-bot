@@ -13,11 +13,13 @@ intents:
   - inform
   - question_answering
   - choose_abc
+  - get_help
 
 entities:
   - person
   - email
   - time
+  - emotional_negative
 
 slots:
   person:
@@ -43,12 +45,13 @@ forms:
       entity: person
     time:
     - type: from_entity
-      entity: time  
+      entity: time
 
 
 actions:
   - utter_greet
   - utter_goodbye
+  - utter_get_help
   - action_submit_contact_form
   - action_get_forex
   - action_recover_contact_email
@@ -76,11 +79,12 @@ responses:
 
   utter_ask_time:
   - text: "Kiedy ma się odbyć spotkanie?"
-  
+
   utter_default_fallback:
   - text: "Przepraszam, czegoś nie zrozumiałem. Czy możesz wyrazić to inaczej?"
 
-  
+  utter_get_help:
+  - text: "Spróbuj uzyskać pomoc na stronie https://www.gov.pl/web/koronawirus/ochrona-zdrowia-psychicznego."
 
 session_config:
   session_expiration_time: 60

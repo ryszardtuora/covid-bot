@@ -11,3 +11,8 @@ rules:
   steps:
   - intent: greet
   - action: utter_greet
+
+- rule: Print help when intent to get help is detected
+  steps:
+  - intent: get_help
+  - action: utter_get_help
