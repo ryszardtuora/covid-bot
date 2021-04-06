@@ -8,6 +8,7 @@
 # This is a simple example for a custom action which utters "Hello World!"
 
 import spacy
+import json
 from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
@@ -18,6 +19,8 @@ from rasa_sdk.forms import FormAction
 from api_utils import get_todays_covid_data, APIError
 
 from qa_utils import get_matching_questions, get_answer
+
+from datetime import datetime
 
 nlp = spacy.load("pl_spacy_model_morfeusz")
 
@@ -85,15 +88,18 @@ class ActionSubmitSurveyForm(Action):
     def run(self, dispatcher: CollectingDispatcher,
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        #name = tracker.get_slot("person")
-        #contact = get_closest_contact(name)
-        #contact_name = contact["name"]
-        #time = tracker.get_slot("time")
-        #meeting_time = str(analyze_timestring(time))
-        #add_meeting(contact_name, meeting_time)
-        #confirmation_message = "Dodano spotkanie z {} na datę {}".format(name, meeting_time)
-        #dispatcher.utter_message(confirmation_message)
-        return []#[SlotSet("person", contact_name), SlotSet("time", meeting_time)]
+        survey_slots = ["survey_age", "survey_sex", "survey_education", "survey_location", "survey_household", "survey_remote", "survey_vaccine", "survey_infection", "survey_economy"]
+        survey_data = {}
+        for slot in survey_slots:
+            value = tracker.get_slot(slot)
+            survey_data[slot] = value
+        survey_data["date"] = str(datetime.utcnow())
+        with open("surveys.json") as f:
+            surveys = json.load(f)
+        surveys.append(survey_data)
+        with open("surveys.json", "w") as f:
+            json.dump(surveys, f, indent=2)
+        return []
 
 
 class ActionCheckCovidData(Action):

@@ -114,33 +114,33 @@ responses:
   - text: 2. Jakiej jesteś płci?
     buttons:
     - title: "Mężczyzna"
-      payload: "/sex_male"
+      payload: "male"
     - title: "Kobieta"
-      payload: "/sex_female"
+      payload: "female"
 
   utter_ask_survey_education:
   - text: 3. Jakie masz wykształcenie?
     buttons:
     - title: "Podstawowe, lub niepełne podstawowe"
-      payload: "/education_basic"
+      payload: "basic"
     - title: "Zawodowe"
-      payload: "/education_technical"
+      payload: "technical"
     - title: "Średnie"
-      payload: "/education_secondary"
+      payload: "secondary"
     - title: "Wyższe"
-      payload: "/education_higher"
+      payload: "higher"
 
   utter_ask_survey_location:
   - text: 4. Czy mieszkasz na wsi, małym (<50 tys.), średnim (<500 tys.) lub dużym mieście?
     buttons:
     - title: "Wieś"
-      payload: "/location_countryside"
+      payload: "countryside"
     - title: "Małe miasto"
-      payload: "/location_small_town"
+      payload: "small_town"
     - title: "Średnie miasto"
-      payload: "/location_medium_town"
+      payload: "medium_town"
     - title: "Duże miasto"
-      payload: "/location_big_town"
+      payload: "big_town"
 
   utter_ask_survey_household:
   - text: 5. Ile osób liczy Twoje gospodarstwo domowe?
@@ -150,43 +150,43 @@ responses:
   - text: 6. Jeśli pracujesz, lub uczysz się, czy robisz to zdalnie, częściowo zdalnie, lub na miejscu?
     buttons:
     - title: "W całości zdalnie"
-      payload: "/remote_in_full"
+      payload: "fully_remote"
     - title: "Częściowo zdalnie"
-      payload: "/remote_in_part"
+      payload: "in_part_remote"
     - title: "W całości na miejscu"
-      payload: "/remote_locally"
+      payload: "locally"
     - title: "Nie dotyczy"
-      payload: "/remote_na"
+      payload: "NA"
 
   utter_ask_survey_vaccine:
   - text: 7. Czy zamierzasz zapisać się, lub zapisałeś/zapisałaś się już na szczepienie?
     buttons:
     - title: "Tak"
-      payload: "/vaccination_yes"
+      payload: "yes"
     - title: "Nie"
-      payload: "/vaccination_no"
+      payload: "no"
     - title: "Nie jestem pewny/pewna"
-      payload: "/vaccination_indifferent"
+      payload: "indifferent"
 
   utter_ask_survey_infection:
   - text: 8. Czy przebyłeś już infekcję koronawirusem, lub aktualnie jesteś zarażony/zarażona?
     buttons:
     - title: "Tak"
-      payload: "/infection_yes"
+      payload: "yes"
     - title: "Nie"
-      payload: "/infection_no"
+      payload: "no"
     - title: "Nie jestem pewny/pewna"
-      payload: "/infection_indifferent"
+      payload: "indifferent"
 
   utter_ask_survey_economy:
   - text: 9. Czy doświadczyłeś/doświadczyłaś pogorszenia swojej sytuacji ekonomicznej w związku z pandemią? 
     buttons:
     - title: "Tak"
-      payload: "/economy_worse"
+      payload: "worse"
     - title: "Nie"
-      payload: "/economy_ok"
+      payload: "ok"
     - title: "Nie wiem"
-      payload: "/economy_indifferent"
+      payload: "indifferent"
 
   utter_ask_survey_restrictions:
   - text: 10. Jak uciążliwe, w skali 0-5, są dla ciebie restrykcje związane z pandemią?
