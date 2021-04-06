@@ -5,9 +5,6 @@ intents:
   - goodbye
   - affirm
   - deny
-  - book_meeting
-  - add_contact
-  - recover_contact_email
   - tell_me_a_joke
   - get_forex
   - inform
@@ -16,6 +13,8 @@ intents:
   - vaccination_registration
   - covid_test_registration
   - check_covid_data
+  - survey
+
 
 entities:
   - person
@@ -31,36 +30,59 @@ slots:
     type: text
   QA:
     type: text
+  survey_age:
+    type: text
+  survey_sex:
+    type: text
+  survey_education:
+    type: text
+  survey_location:
+    type: text
+  survey_household:
+    type: text
+  survey_remote:
+    type: text
+  survey_vaccine:
+    type: text
+  survey_infection:
+    type: text
+  survey_economy:
+    type: text
 
-forms:
-  contact_form:
-    person:
-    - type: from_entity
-      entity: person
-    email:
-    - type: from_entity
-      entity: email
-  meeting_form:
-    person:
-    - type: from_entity
-      entity: person
-    time:
-    - type: from_entity
-      entity: time  
 
 
 actions:
   - utter_greet
   - utter_goodbye
-  - action_submit_contact_form
   - action_get_forex
-  - action_recover_contact_email
-  - action_submit_meeting_form
   - action_match_question
   - action_answer_question
+  - action_submit_survey_form
+  - action_check_covid_data
   - utter_vaccination_registration
   - utter_covid_test_registration
-  - action_check_covid_data
+  - utter_survey_done
+
+forms:
+  survey_form:
+    survey_age:
+    - type: from_text
+    survey_sex:
+      - type: from_text
+    survey_education:
+      - type: from_text
+    survey_location:
+      - type: from_text
+    survey_household:
+      - type: from_text
+    survey_remote:
+      - type: from_text
+    survey_vaccine:
+      - type: from_text
+    survey_infection:
+      - type: from_text
+    survey_economy:
+      - type: from_text
 
 responses:
   utter_greet:
@@ -73,15 +95,6 @@ responses:
 
   utter_joke:
   - text: "Przychodzi chatbot do lekarza... A lekarz też chatbot!"
-
-  utter_ask_person:
-  - text: "Jak nazywa się ta osoba?"
-
-  utter_ask_email:
-  - text: "Jaki jest adres email tej osoby?"
-
-  utter_ask_time:
-  - text: "Kiedy ma się odbyć spotkanie?"
   
   utter_default_fallback:
   - text: "Przepraszam, czegoś nie zrozumiałem. Czy możesz wyrazić to inaczej?"
@@ -91,7 +104,93 @@ responses:
 
   utter_covid_test_registration:
   - text: "Rejestracja na testy na obecność koronawirusa jest dostępna pod tym linkiem: https://www.gov.pl/web/gov/zapisz-sie-na-test-na-koronawirusa"
-  
+
+  # Survey
+  utter_survey_done:
+  - text: Dziękujemy, Twoje odpowiedzi zostały zapisane!
+  utter_ask_survey_age:
+  - text: 1. W jakim jesteś wieku?
+  utter_ask_survey_sex:
+  - text: 2. Jakiej jesteś płci?
+    buttons:
+    - title: "Mężczyzna"
+      payload: "/sex_male"
+    - title: "Kobieta"
+      payload: "/sex_female"
+
+  utter_ask_survey_education:
+  - text: 3. Jakie masz wykształcenie?
+    buttons:
+    - title: "Podstawowe, lub niepełne podstawowe"
+      payload: "/education_basic"
+    - title: "Zawodowe"
+      payload: "/education_technical"
+    - title: "Średnie"
+      payload: "/education_secondary"
+    - title: "Wyższe"
+      payload: "/education_higher"
+
+  utter_ask_survey_location:
+  - text: 4. Czy mieszkasz na wsi, małym (<50 tys.), średnim (<500 tys.) lub dużym mieście?
+    buttons:
+    - title: "Wieś"
+      payload: "/location_countryside"
+    - title: "Małe miasto"
+      payload: "/location_small_town"
+    - title: "Średnie miasto"
+      payload: "/location_medium_town"
+    - title: "Duże miasto"
+      payload: "/location_big_town"
+
+  utter_ask_survey_household:
+  - text: 5. Ile osób liczy Twoje gospodarstwo domowe?
+  # int field
+
+  utter_ask_survey_remote:
+  - text: 6. Jeśli pracujesz, lub uczysz się, czy robisz to zdalnie, częściowo zdalnie, lub na miejscu?
+    buttons:
+    - title: "W całości zdalnie"
+      payload: "/remote_in_full"
+    - title: "Częściowo zdalnie"
+      payload: "/remote_in_part"
+    - title: "W całości na miejscu"
+      payload: "/remote_locally"
+    - title: "Nie dotyczy"
+      payload: "/remote_na"
+
+  utter_ask_survey_vaccine:
+  - text: 7. Czy zamierzasz zapisać się, lub zapisałeś/zapisałaś się już na szczepienie?
+    buttons:
+    - title: "Tak"
+      payload: "/vaccination_yes"
+    - title: "Nie"
+      payload: "/vaccination_no"
+    - title: "Nie jestem pewny/pewna"
+      payload: "/vaccination_indifferent"
+
+  utter_ask_survey_infection:
+  - text: 8. Czy przebyłeś już infekcję koronawirusem, lub aktualnie jesteś zarażony/zarażona?
+    buttons:
+    - title: "Tak"
+      payload: "/infection_yes"
+    - title: "Nie"
+      payload: "/infection_no"
+    - title: "Nie jestem pewny/pewna"
+      payload: "/infection_indifferent"
+
+  utter_ask_survey_economy:
+  - text: 9. Czy doświadczyłeś/doświadczyłaś pogorszenia swojej sytuacji ekonomicznej w związku z pandemią? 
+    buttons:
+    - title: "Tak"
+      payload: "/economy_worse"
+    - title: "Nie"
+      payload: "/economy_ok"
+    - title: "Nie wiem"
+      payload: "/economy_indifferent"
+
+  utter_ask_survey_restrictions:
+  - text: 10. Jak uciążliwe, w skali 0-5, są dla ciebie restrykcje związane z pandemią?
+
 
 session_config:
   session_expiration_time: 60

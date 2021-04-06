@@ -14,11 +14,6 @@ stories:
   - intent: get_forex
   - action: action_get_forex
 
-- story: recover_contact_email_1
-  steps:
-  - intent: recover_contact_email
-  - action: action_recover_contact_email
-
 - story: mixed
   steps:
   - intent: get_forex
@@ -36,67 +31,56 @@ stories:
   - intent: covid_test_registration
   - action: utter_covid_test_registration
 
+
 - story: covid_data
   steps:
   - intent: check_covid_data
   - action: action_check_covid_data
 
-- story: add_contact_happy
-  steps:
-  - intent: add_contact
-  - action: contact_form
-  - active_loop: contact_form
-  - slot_was_set:
-    - requested_slot: person
-    - person: Adam Nowak
-  - slot_was_set:
-    - requested_slot: email
-    - email: a@mail.pl
-  - active_loop: null
-  - action: action_submit_contact_form
-
-- story: add_contact_sad
-  steps:
-  - intent: add_contact
-  - action: contact_form
-  - active_loop: contact_form
-  - slot_was_set:
-    - requested_slot: person
-    - person: Adam Nowak
-  - intent: out_of_scope
-  - action: action_deactivate_loop
-  - active_loop: null
-  - action: utter_default_fallback
-
-- story: book_meeting_happy
-  steps:
-  - intent: book_meeting
-  - action: meeting_form
-  - active_loop: meeting_form
-  - slot_was_set:
-    - requested_slot: person
-    - person: Adam Nowak
-  - slot_was_set:
-    - requested_slot: time
-    - time: przyszły czwartek
-  - active_loop: null
-  - action: action_submit_meeting_form
-
-- story: book_meeting_sad
-  steps:
-  - intent: book_meeting
-  - action: meeting_form
-  - active_loop: meeting_form
-  - slot_was_set:
-    - requested_slot: person
-    - person: Adam Nowak
-  - intent: out_of_scope
-  - action: action_deactivate_loop
-  - active_loop: null
-  - action: utter_default_fallback
-
 - story: joke
   steps:
   - intent: tell_me_a_joke
   - action: utter_joke
+
+- story: Survey Form
+  steps:
+  - intent: survey
+  - action: survey_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: person
+    - person: Adam Nowak
+  - slot_was_set:
+    - requested_slot:  survey_age
+    - survey_age: 26 
+  - slot_was_set:
+    - requested_slot:  survey_sex
+    - survey_sex: Mężczyzna
+  - slot_was_set:
+    - requested_slot:  survey_education
+    - survey_education: Wyższe
+  - slot_was_set:
+    - requested_slot:  survey_location
+    - survey_location: Miasto
+  - slot_was_set:
+    - requested_slot:  survey_household
+    - survey_household: 10
+  - slot_was_set:
+    - requested_slot:  survey_remote
+    - survey_remote: całkiem
+  - slot_was_set:
+    - requested_slot:  survey_vaccine
+    - survey_vaccine: Tak
+  - slot_was_set:
+    - requested_slot:  survey_infection
+    - survey_infection: Nie
+  - slot_was_set:
+    - requested_slot:  survey_economy
+    - survey_economy: Mało
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_survey_done
+
+
 
