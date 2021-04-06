@@ -14,7 +14,6 @@ intents:
   - covid_test_registration
   - check_covid_data
   - survey
-
   - get_help
 
 entities:
