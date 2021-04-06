@@ -43,7 +43,11 @@ class ActionMatchQuestion(Action):
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         question = tracker.latest_message["text"]
         top_3_questions = get_matching_questions(question)
-        top_3_answers = [get_answer(q) for q in top_3_questions]
+        least_distance = top_3_questions[0][1]
+        if least_distance > 0.4:
+            dispatcher.utter_message("Nie udało mi się zrozumieć Twojego pytania, proszę spróbuj je sformułować inaczej.")
+            return []
+        top_3_answers = [get_answer(q[0]) for q in top_3_questions]
         top_3_questions_string = "\ta) {}\n\tb) {}\n\tc) {}".format(*top_3_questions)
         questions_message = "Wybierz o które z pytań Ci chodziło:\n\n{}\n\nWpisz a), b) lub c)".format(top_3_questions_string)
         dispatcher.utter_message(questions_message)
@@ -89,7 +93,6 @@ class ActionSubmitSurveyForm(Action):
         #add_meeting(contact_name, meeting_time)
         #confirmation_message = "Dodano spotkanie z {} na datę {}".format(name, meeting_time)
         #dispatcher.utter_message(confirmation_message)
-        print("action")
         return []#[SlotSet("person", contact_name), SlotSet("time", meeting_time)]
 
 

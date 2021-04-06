@@ -9,17 +9,14 @@ stories:
   - intent: choose_abc
   - action: action_answer_question
 
-- story: get_forex_1
+- story: qa_1
   steps:
-  - intent: get_forex
-  - action: action_get_forex
-
-- story: mixed
-  steps:
-  - intent: get_forex
-  - action: action_get_forex
-  - intent: tell_me_a_joke
-  - action: utter_joke
+  - intent: question_answering
+  - action: action_match_question
+  - intent: question_answering
+  - action: action_match_question
+  - intent: choose_abc
+  - action: action_answer_question
 
 - story: vaccination
   steps:
@@ -80,6 +77,7 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
+  - action: action_submit_survey_form
   - action: utter_survey_done
 
 

@@ -118,6 +118,13 @@ nlu:
 
 - intent: inform
   examples: |
+    - 12 osób
+    - 28 lat
+    - 26
+    - osiem
+    - dwadzieścia dwa
+    - trzydzieści lat
+    - dwie osoby
     - [Adam Morawski](person)
     - [Karolina Dąbrowska](person)
     - nazywa się [Agata Mazowiecka](person)
@@ -196,4 +203,5 @@ nlu:
     - wypełnianie ankiety
     - chciałabym wypełnić ankietę
     - Mogę uzupełnić ankietę
+    - ankieta
 
