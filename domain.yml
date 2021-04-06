@@ -90,7 +90,7 @@ forms:
 responses:
   utter_greet:
   - text: "Cześć! Czym mogę służyć?"
-  - text: "Hej, w czym mogę pomóc"
+  - text: "Hej, w czym mogę pomóc?"
 
   utter_goodbye:
   - text: "Do zobaczenia!"

@@ -129,6 +129,15 @@ nlu:
     - Czy dostanę potwierdzenie tego, że zostałem zapisany na szczepienie?
     - Czy można anulować wizytę na szczepienie?
     - Czy szczepionka jest płatna?
+    - Jak zniszczyć wirusa?
+    - Czy poczta jest otwarta?
+    - Czy niepełnosprawni dostaną pomoc?
+    - Czy chlor pomaga na koronawirusa?
+    - Jak mogę zabić wirusy?
+    - Co zrobić gdy mam wirusa?
+    - Jak się różnią rodzaje testów?
+    - Ile jest ważne skierowanie na test?
+    - Jak rozumieć bliski kontakt?
     - Czy w mojej przychodni mogę się zaszczepić?
     - Chcę zapisać mojego dziadka / babcię / mamę / tatę / sąsiada itp. czy mogę to zrobić jako osoba trzecia?
     - Na infolinii Narodowego Punktu Szczepień poinformowano mnie, że w Krakowie do końca marca nie ma już wolnych terminów szczepień. Czy dotyczy to również wyjazdowych punktów szczepień?
@@ -256,3 +265,10 @@ nlu:
     - jestem zmęczona [separacją](emotional_negative) od moich bliskich
     - od początku pandemii odczuwam [lęk](emotional_negative)
     - mój ojciec [zmarł](emotional_negative) na koronawirusa
+    - już nie wytrzymuję tego psychicznie
+    - czuję się jakbym [tracił](emotional_negative) rozum
+    - [Stres](emotional_negative) związany z tym wszystkim mnie [przybija](emotional_negative)
+    - Nie radzę sobie już z [problemami](emotional_negative)
+    - chyba potrzebuję pomocy
+    - Może powinienem iść do psychiatry, albo psychologa?
+    - Wpadam w jakiś [zły nastrój](emotional_negative)
