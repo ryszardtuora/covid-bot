@@ -28,6 +28,17 @@ nlu:
     - lęk[iem]?
     - zmar(ł[a]?|li)
 
+- intent: introduction
+  examples: |
+    - co potrafisz?
+    - Kim jesteś?
+    - Co możesz zrobić?
+    - co umiesz zrobić
+    - co oferujesz?
+    - jakie są twoje możliwości?
+    - jakie masz funkcje
+    - w czym potrafisz pomóc?
+
 - intent: choose_abc
   examples: |
     - a)
@@ -176,18 +187,6 @@ nlu:
     - [piątek 13go](time)
     - [dziś o 17:00](time)
     - [ósmego sierpnia](time)
-
-- intent: get_forex
-  examples: |
-    - Pokaż mi ceny walut
-    - Jak stoją teraz waluty?
-    - ile kosztuje obecnie dolar?
-    - Ile jest warte euro?
-    - wypisz mi waluty
-    - wypisz dane z forexa
-    - pokaż forex
-    - pobierz dane o walutach
-    - jaka jest cena funta?
 
 - intent: tell_me_a_joke
   examples: |

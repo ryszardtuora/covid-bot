@@ -2,6 +2,26 @@ version: "2.0"
 
 stories:
 
+- story: full_story
+  steps:
+  - intent: introduction
+  - action: utter_introduction
+  - intent: vaccination_registration
+  - action: utter_vaccination_registration
+  - intent: covid_test_registration
+  - action: utter_covid_test_registration
+  - action: action_match_question
+  - intent: choose_abc
+  - action: action_answer_question
+  - intent: check_covid_data
+  - action: action_check_covid_data
+
+
+- story: introducing 
+  steps:
+  - intent: introduction
+  - action: utter_introduction
+
 - story: qa_1
   steps:
   - intent: question_answering
@@ -9,7 +29,7 @@ stories:
   - intent: choose_abc
   - action: action_answer_question
 
-- story: qa_1
+- story: qa_2
   steps:
   - intent: question_answering
   - action: action_match_question

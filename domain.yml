@@ -6,7 +6,6 @@ intents:
   - affirm
   - deny
   - tell_me_a_joke
-  - get_forex
   - inform
   - question_answering
   - choose_abc
@@ -15,6 +14,7 @@ intents:
   - check_covid_data
   - survey
   - get_help
+  - introduction
 
 entities:
   - person
@@ -54,9 +54,9 @@ slots:
 
 actions:
   - utter_greet
+  - utter_introduction
   - utter_goodbye
   - utter_get_help
-  - action_get_forex
   - action_match_question
   - action_answer_question
   - action_submit_survey_form
@@ -92,6 +92,9 @@ responses:
   - text: "Cześć! Czym mogę służyć?"
   - text: "Hej, w czym mogę pomóc?"
 
+  utter_introduction:
+  - text: "Jestem czatbotem, który ma na celu odpowiedzieć na Twoje pytania związane z koronawirusem. Moja wiedza pochodzi z oficjalnych źródeł Ministerstwa Zdrowia."
+
   utter_goodbye:
   - text: "Do zobaczenia!"
   - text: "Na razie!"
@@ -112,7 +115,7 @@ responses:
 
   # Survey
   utter_survey_introduction:
-  - text: Zapraszamy do wzięcia udziału w ankiecie, składa się ona z 9ciu-pytań dotyczących Twojej sytuacji w związku z pandemią koronawirusa. Jeżeli żadna z propozycji odpowiedzi Cię nie satysfakcjonuje, po prostu napisz sam pasującą odpowiedź. Ankieta jest w pełni anonimowa.
+  - text: Zapraszamy do wzięcia udziału w ankiecie, składa się ona z 9-ciu pytań dotyczących Twojej sytuacji w związku z pandemią koronawirusa. Jeżeli żadna z propozycji odpowiedzi Cię nie satysfakcjonuje, po prostu napisz sam pasującą odpowiedź. Ankieta jest w pełni anonimowa.
   utter_survey_done:
   - text: Dziękujemy, Twoje odpowiedzi zostały zapisane!
   utter_ask_survey_age:
