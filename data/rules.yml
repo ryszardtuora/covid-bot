@@ -6,13 +6,20 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
+  - action: action_restart
 
 - rule: Greet the user anytime the user says hi
   steps:
   - intent: greet
   - action: utter_greet
+  - action: action_restart
 
 - rule: Print help when intent to get help is detected
   steps:
   - intent: get_help
   - action: utter_get_help
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default_fallback

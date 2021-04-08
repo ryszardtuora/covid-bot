@@ -38,6 +38,7 @@ nlu:
     - jakie są twoje możliwości?
     - jakie masz funkcje
     - w czym potrafisz pomóc?
+    - co masz w ofercie?
 
 - intent: choose_abc
   examples: |
@@ -151,6 +152,9 @@ nlu:
     - Jak rozumieć bliski kontakt?
     - Czy w mojej przychodni mogę się zaszczepić?
     - Chcę zapisać mojego dziadka / babcię / mamę / tatę / sąsiada itp. czy mogę to zrobić jako osoba trzecia?
+    - co to jest covid?
+    - czym jest koronawirus?
+    - jak działa wirus?
     - Na infolinii Narodowego Punktu Szczepień poinformowano mnie, że w Krakowie do końca marca nie ma już wolnych terminów szczepień. Czy dotyczy to również wyjazdowych punktów szczepień?
 
 - intent: out_of_scope
